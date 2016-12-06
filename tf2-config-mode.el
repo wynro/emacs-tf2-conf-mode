@@ -63,10 +63,10 @@
   (setq-local comment-auto-fill-only-comments t)
 
   ;; Syntax highlight
-  (set (make-local-variable 'font-lock-defaults) '(tf2-config-font-lock-keywords))
+  (setq-local font-lock-defaults '(tf2-config-font-lock-keywords))
 
   ;; No indentation
-  (set (make-local-variable 'indent-line-function) 'tf2-config-indent-line)
+  (setq-local indent-line-function 'tf2-config-indent-line)
   )
 
 (provide 'tf2-config-mode)
