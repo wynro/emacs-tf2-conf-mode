@@ -40,6 +40,11 @@
   "Font lock keywords for TF2 Config Mode."
   )
 
+ (defun tf2-config-indent-line ()
+   "Indent current line of TF2 Configuration."
+   (interactive)
+   (indent-line-to 0))
+
 (defvar tf2-config-mode-syntax-table
   (let ((table (make-syntax-table)))
     (modify-syntax-entry ?_ "w" table)
@@ -60,8 +65,8 @@
   ;; Syntax highlight
   (set (make-local-variable 'font-lock-defaults) '(tf2-config-font-lock-keywords))
 
-  ;; No indentation function
-  ;; (set (make-local-variable 'indent-line-function) 'tf2-config-indent-line)
+  ;; No indentation
+  (set (make-local-variable 'indent-line-function) 'tf2-config-indent-line)
   )
 
 (provide 'tf2-config-mode)
