@@ -28,11 +28,7 @@
 
 ;;; Code:
 
-
 (defconst tf2-conf-font-lock-keywords
-  ;; (concat "\\<" (regexp-opt '("alias" "cl_vote_ui_active_after_voting" "fov" "viewmodel_fov" "fov_desired" "tf_hud_target_id_alpha" "tf_hud_target_id_disable_floating_health" "tf_dingaling_pitchmaxdmg" "tf_dingaling_pitchmindmg" "hud_combattext_batching" "mat_phong" "exec" "bind" "cl_demoviewoverride" "cl_downloadfilter" "cl_drawhud" "cl_showfps" "demolist" "demoui" "demoui2" "disguise" "exit" "explode" "fps_max" "hidepanel" "hud_fastswitch" "impulse" "jpeg" "jpeg_quality" "kill" "mat_bumpmap" "mat_compressedtextures" "mat_dxlevel" "mat_picmip" "mat_queue_mode" "mat_specular" "mp_autoteambalance" "mp_decals" "mp_maxrounds" "mp_restartround" "mp_teams_unbalance_limit" "mp_timelimit" "mp_winlimit" "net_graph" "net_graphheight" "net_graphpos" "record demoname" "say" "say_team" "screenshot" "showmapinfo" "showscores" "stop" "sv_allowdownload" "sv_allowupload" "sv_alltalk" "sv_gravity" "sv_hltv" "sv_lan" "sv_password" "sv_pausable" "sv_voiceenable" "toggleconsole" "voice_menu_1" "voice_menu_2" "voice_menu_3" "voicemenu" "voicerecord") t) "\\>")
-;; (concat "\\<" (regexp-opt '("tf_weapon_scattergun" "tf_weapon_handgun_scout_primary" "tf_weapon_soda_popper" "tf_weapon_pistol_scout" "tf_weapon_lunchbox_drink" "tf_weapon_jar_milk" "tf_weapon_handgun_scout_secondary" "tf_weapon_cleaver" "tf_weapon_bat" "tf_weapon_bat_wood" "tf_weapon_bat_fish" "tf_weapon_rocketlauncher" "tf_weapon_rocketlauncher_directhit" "tf_weapon_particle_cannon" "tf_weapon_shotgun_soldier" "tf_weapon_buff_item" "tf_weapon_raygun" "tf_weapon_shovel" "tf_weapon_katana" "tf_weapon_rocketlauncher_airstrike" "tf_weapon_flamethrower" "tf_weapon_shotgun_pyro" "tf_weapon_flaregun" "tf_weapon_fireaxe" "tf_weapon_grenadelauncher" "tf_weapon_pipebomblauncher" "tf_weapon_bottle" "tf_weapon_sword" "tf_weapon_stickbomb" "tf_weapon_katana" "tf_weapon_minigun" "tf_weapon_shotgun_hwg" "tf_weapon_lunchbox" "tf_weapon_fists" "tf_weapon_shotgun_primary" "tf_weapon_sentry_revenge" "tf_weapon_pistol" "tf_weapon_laser_pointer" "tf_weapon_mechanical_arm" "tf_weapon_wrench" "tf_weapon_robot_arm" "tf_weapon_pda_engineer_destroy" "tf_weapon_pda_engineer_build" "tf_weapon_syringegun_medic" "tf_weapon_crossbow" "tf_weapon_medigun" "tf_weapon_bonesaw" "tf_weapon_sniperrifle" "tf_weapon_compound_bow" "tf_weapon_sniperrifle_decap" "tf_weapon_smg" "tf_weapon_jar" "tf_weapon_club" "tf_weapon_sniperrifle_classic" "tf_weapon_revolver" "tf_weapon_knife" "tf_weapon_pda_spy") t) "\\>")
-;; (concat "\\<" (regexp-opt '("ESCAPE" "F1" "F2" "F3" "F4" "F5" "F6" "F7" "F8" "F9" "F10" "F11" "F12" "`" "1" "2" "3" "4" "5" "6" "7" "8" "9" "0" "-" "=" "BACKSPACE" "TAB" "Q" "W" "E" "R" "T" "Y" "U" "I" "O" "P" "[" "]" "\"" "CAPSLOCK" "A" "S" "D" "F" "G" "H" "J" "K" "L" "SEMICOLON" "'" "ENTER" "SHIFT" "Z" "X" "C" "V" "B" "N" "M" "," "." "/" "RSHIFT" "CTRL" "LWIN" "ALT" "SPACE" "RWIN" "RCTRL" "SCROLLLOCK" "NUMLOCK" "INS" "HOME" "PGUP" "DEL" "END" "PGDN" "UPARROW" "LEFTARROW" "DOWNARROW" "RIGHTARROW" "MWHEELUP" "MWHEELDOWN" "MOUSE1" "MOUSE2" "MOUSE3" "MOUSE4" "MOUSE5") t) "\\>")
   (list
    '("\\\/\/.*" . font-lock-comment-face)
    '("\\<\\(alias\\|bind\\|cl_\\(?:d\\(?:emoviewoverride\\|ownloadfilter\\|rawhud\\)\\|showfps\\|vote_ui_active_after_voting\\)\\|d\\(?:emo\\(?:list\\|ui2?\\)\\|isguise\\)\\|ex\\(?:ec\\|it\\|plode\\)\\|f\\(?:ov\\(?:_desired\\)?\\|ps_max\\)\\|h\\(?:idepanel\\|ud_\\(?:combattext_batching\\|fastswitch\\)\\)\\|impulse\\|jpeg\\(?:_quality\\)?\\|kill\\|m\\(?:at_\\(?:bumpmap\\|compressedtextures\\|dxlevel\\|p\\(?:hong\\|icmip\\)\\|queue_mode\\|specular\\)\\|p_\\(?:autoteambalance\\|decals\\|maxrounds\\|restartround\\|\\(?:t\\(?:eams_unbalance_\\|ime\\)\\|win\\)limit\\)\\)\\|net_graph\\(?:height\\|pos\\)?\\|record demoname\\|s\\(?:ay\\(?:_team\\)?\\|creenshot\\|how\\(?:mapinfo\\|scores\\)\\|top\\|v_\\(?:all\\(?:ow\\(?:\\(?:down\\|up\\)load\\)\\|talk\\)\\|gravity\\|hltv\\|lan\\|pa\\(?:ssword\\|usable\\)\\|voiceenable\\)\\)\\|t\\(?:f_\\(?:dingaling_pitchm\\(?:\\(?:ax\\|in\\)dmg\\)\\|hud_target_id_\\(?:alpha\\|disable_floating_health\\)\\)\\|oggleconsole\\)\\|v\\(?:iewmodel_fov\\|oice\\(?:_menu_[123]\\|menu\\|record\\)\\)\\)\\>" . font-lock-builtin-face)
@@ -42,32 +38,48 @@
   "Font lock keywords for TF2 Config Mode."
   )
 
- (defun tf2-conf-indent-line ()
-   "Indent current line of TF2 Configuration."
-   (indent-line-to 0))
-
-(defvar tf2-conf-mode-syntax-table
+(defvar tf2-conf-mode-syntax-table nil "Syntax table for `tf2-conf-mode'.")
+(setq tf2-conf-mode-syntax-table
   (let ((table (make-syntax-table)))
     (modify-syntax-entry ?_ "w" table)
-    table)
-  "Syntax table to use in `tf2-conf-mode' buffers.")
+    (modify-syntax-entry ?\/ ". 12b" table)
+    (modify-syntax-entry ?\n "> b" table)
+    table))
+
+(defun tf2-conf-indent-line ()
+  "Indent current line of TF2 Configuration."
+  (indent-line-to 0))
+
+(defun tf2-conf-outline-level ()
+  "Outline level of TF2 Configuration."
+  0)
 
 ;;;###autoload
-(define-derived-mode tf2-conf-mode fundamental-mode "TF2 Config"
+(defun tf2-conf-mode ()
   "Major mode for editing TF2 configuration files."
+  (interactive)
+  (set-syntax-table tf2-conf-mode-syntax-table)
 
-  ;; Comment configuration
-  (setq-local comment-start "// ")
-  (setq-local comment-start-skip "//+ *")
-  (setq-local comment-use-syntax t)
-  (setq-local comment-end "")
-  (setq-local comment-auto-fill-only-comments t)
+  ;; Define mode information
+  (setq major-mode 'tf2-conf-mode mode-name "Config[TF2]")
 
-  ;; Syntax highlight
-  (setq-local font-lock-defaults '(tf2-conf-font-lock-keywords))
+  ;; Define syntax highliting function
+  (set (make-local-variable 'font-lock-defaults)
+       '(tf2-conf-font-lock-keywords nil t nil nil))
 
-  ;; No indentation
-  (setq-local indent-line-function 'tf2-conf-indent-line)
+  ;; Define outline level
+  (set (make-local-variable 'outline-level) 'tf2-conf-outline-level)
+
+  ;; Define indentation function (no indentation)
+  (set (make-local-variable 'indent-line-function) 'tf2-conf-indent-line)
+
+  ;; Define comment information
+  (set (make-local-variable 'comment-start) "//")
+  (set (make-local-variable 'comment-start-skip)
+       (concat (regexp-quote comment-start) "+\\s *"))
+
+  ;; Run hooks
+  (run-mode-hooks 'tf2-conf-mode-hook)
   )
 
 (provide 'tf2-conf-mode)
