@@ -44,7 +44,6 @@
 
  (defun tf2-config-indent-line ()
    "Indent current line of TF2 Configuration."
-   (interactive)
    (indent-line-to 0))
 
 (defvar tf2-config-mode-syntax-table
