@@ -1,9 +1,9 @@
-;;; tf2-config-mode.el --- TF2 Config files syntax highlighting
+;;; tf2-conf-mode.el --- TF2 Configuration files syntax highlighting
 
 ;; Copyright (C) 2016  Guillermo Robles <guillerobles1995@gmail.com>
 
 ;; Author: Guillermo Robles <guillerobles1995@gmail.com>
-;; URL: https://github.com/wynro/emacs-tf2-config-mode
+;; URL: https://github.com/wynro/emacs-tf2-conf-mode
 ;; Keywords: languages
 ;; Version: 0.2
 
@@ -29,7 +29,7 @@
 ;;; Code:
 
 
-(defconst tf2-config-font-lock-keywords
+(defconst tf2-conf-font-lock-keywords
   ;; (concat "\\<" (regexp-opt '("alias" "cl_vote_ui_active_after_voting" "fov" "viewmodel_fov" "fov_desired" "tf_hud_target_id_alpha" "tf_hud_target_id_disable_floating_health" "tf_dingaling_pitchmaxdmg" "tf_dingaling_pitchmindmg" "hud_combattext_batching" "mat_phong" "exec" "bind" "cl_demoviewoverride" "cl_downloadfilter" "cl_drawhud" "cl_showfps" "demolist" "demoui" "demoui2" "disguise" "exit" "explode" "fps_max" "hidepanel" "hud_fastswitch" "impulse" "jpeg" "jpeg_quality" "kill" "mat_bumpmap" "mat_compressedtextures" "mat_dxlevel" "mat_picmip" "mat_queue_mode" "mat_specular" "mp_autoteambalance" "mp_decals" "mp_maxrounds" "mp_restartround" "mp_teams_unbalance_limit" "mp_timelimit" "mp_winlimit" "net_graph" "net_graphheight" "net_graphpos" "record demoname" "say" "say_team" "screenshot" "showmapinfo" "showscores" "stop" "sv_allowdownload" "sv_allowupload" "sv_alltalk" "sv_gravity" "sv_hltv" "sv_lan" "sv_password" "sv_pausable" "sv_voiceenable" "toggleconsole" "voice_menu_1" "voice_menu_2" "voice_menu_3" "voicemenu" "voicerecord") t) "\\>")
 ;; (concat "\\<" (regexp-opt '("tf_weapon_scattergun" "tf_weapon_handgun_scout_primary" "tf_weapon_soda_popper" "tf_weapon_pistol_scout" "tf_weapon_lunchbox_drink" "tf_weapon_jar_milk" "tf_weapon_handgun_scout_secondary" "tf_weapon_cleaver" "tf_weapon_bat" "tf_weapon_bat_wood" "tf_weapon_bat_fish" "tf_weapon_rocketlauncher" "tf_weapon_rocketlauncher_directhit" "tf_weapon_particle_cannon" "tf_weapon_shotgun_soldier" "tf_weapon_buff_item" "tf_weapon_raygun" "tf_weapon_shovel" "tf_weapon_katana" "tf_weapon_rocketlauncher_airstrike" "tf_weapon_flamethrower" "tf_weapon_shotgun_pyro" "tf_weapon_flaregun" "tf_weapon_fireaxe" "tf_weapon_grenadelauncher" "tf_weapon_pipebomblauncher" "tf_weapon_bottle" "tf_weapon_sword" "tf_weapon_stickbomb" "tf_weapon_katana" "tf_weapon_minigun" "tf_weapon_shotgun_hwg" "tf_weapon_lunchbox" "tf_weapon_fists" "tf_weapon_shotgun_primary" "tf_weapon_sentry_revenge" "tf_weapon_pistol" "tf_weapon_laser_pointer" "tf_weapon_mechanical_arm" "tf_weapon_wrench" "tf_weapon_robot_arm" "tf_weapon_pda_engineer_destroy" "tf_weapon_pda_engineer_build" "tf_weapon_syringegun_medic" "tf_weapon_crossbow" "tf_weapon_medigun" "tf_weapon_bonesaw" "tf_weapon_sniperrifle" "tf_weapon_compound_bow" "tf_weapon_sniperrifle_decap" "tf_weapon_smg" "tf_weapon_jar" "tf_weapon_club" "tf_weapon_sniperrifle_classic" "tf_weapon_revolver" "tf_weapon_knife" "tf_weapon_pda_spy") t) "\\>")
 ;; (concat "\\<" (regexp-opt '("ESCAPE" "F1" "F2" "F3" "F4" "F5" "F6" "F7" "F8" "F9" "F10" "F11" "F12" "`" "1" "2" "3" "4" "5" "6" "7" "8" "9" "0" "-" "=" "BACKSPACE" "TAB" "Q" "W" "E" "R" "T" "Y" "U" "I" "O" "P" "[" "]" "\"" "CAPSLOCK" "A" "S" "D" "F" "G" "H" "J" "K" "L" "SEMICOLON" "'" "ENTER" "SHIFT" "Z" "X" "C" "V" "B" "N" "M" "," "." "/" "RSHIFT" "CTRL" "LWIN" "ALT" "SPACE" "RWIN" "RCTRL" "SCROLLLOCK" "NUMLOCK" "INS" "HOME" "PGUP" "DEL" "END" "PGDN" "UPARROW" "LEFTARROW" "DOWNARROW" "RIGHTARROW" "MWHEELUP" "MWHEELDOWN" "MOUSE1" "MOUSE2" "MOUSE3" "MOUSE4" "MOUSE5") t) "\\>")
@@ -42,18 +42,18 @@
   "Font lock keywords for TF2 Config Mode."
   )
 
- (defun tf2-config-indent-line ()
+ (defun tf2-conf-indent-line ()
    "Indent current line of TF2 Configuration."
    (indent-line-to 0))
 
-(defvar tf2-config-mode-syntax-table
+(defvar tf2-conf-mode-syntax-table
   (let ((table (make-syntax-table)))
     (modify-syntax-entry ?_ "w" table)
     table)
-  "Syntax table to use in `tf2-config-mode' buffers.")
+  "Syntax table to use in `tf2-conf-mode' buffers.")
 
 ;;;###autoload
-(define-derived-mode tf2-config-mode fundamental-mode "TF2 Config"
+(define-derived-mode tf2-conf-mode fundamental-mode "TF2 Config"
   "Major mode for editing TF2 configuration files."
 
   ;; Comment configuration
@@ -64,11 +64,11 @@
   (setq-local comment-auto-fill-only-comments t)
 
   ;; Syntax highlight
-  (setq-local font-lock-defaults '(tf2-config-font-lock-keywords))
+  (setq-local font-lock-defaults '(tf2-conf-font-lock-keywords))
 
   ;; No indentation
-  (setq-local indent-line-function 'tf2-config-indent-line)
+  (setq-local indent-line-function 'tf2-conf-indent-line)
   )
 
-(provide 'tf2-config-mode)
-;;; tf2-config-mode.el ends here
+(provide 'tf2-conf-mode)
+;;; tf2-conf-mode.el ends here
