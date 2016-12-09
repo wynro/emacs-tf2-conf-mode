@@ -55,32 +55,20 @@
   0)
 
 ;;;###autoload
-(defun tf2-conf-mode ()
-  "Major mode for editing TF2 configuration files."
-  (interactive)
-  (set-syntax-table tf2-conf-mode-syntax-table)
+(define-derived-mode tf2-conf-mode conf-mode "Config[TF2]"
+  "Major mode for editing CS:GO configuration files."
 
-  ;; Define mode information
-  (setq major-mode 'tf2-conf-mode mode-name "Config[TF2]")
+  (setq font-lock-defaults  '(tf2-conf-font-lock-keywords nil t nil)
+	case-fold-search     t)
 
-  ;; Define syntax highliting function
-  (set (make-local-variable 'font-lock-defaults)
-       '(tf2-conf-font-lock-keywords nil t nil nil))
-
-  ;; Define outline level
-  (set (make-local-variable 'outline-level) 'tf2-conf-outline-level)
-
-  ;; Define indentation function (no indentation)
-  (set (make-local-variable 'indent-line-function) 'tf2-conf-indent-line)
-
-  ;; Define comment information
   (set (make-local-variable 'comment-start) "//")
   (set (make-local-variable 'comment-start-skip)
        (concat (regexp-quote comment-start) "+\\s *"))
+  (set (make-local-variable 'comment-end) "")
 
-  ;; Run hooks
-  (run-mode-hooks 'tf2-conf-mode-hook)
-  )
+  (set (make-local-variable 'indent-line-function)
+       'tf2-conf-indent-line)
+)
 
 (provide 'tf2-conf-mode)
 ;;; tf2-conf-mode.el ends here
